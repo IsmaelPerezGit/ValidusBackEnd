@@ -1,9 +1,15 @@
 var express = require('express');
 var router = express.Router();
+var knex = require('../db/knex')
 
-/* GET users listing. */
+
+//Splash page
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+    knex.raw(`select * from users`)
+        .then(function(users) {
+          res.send(users.rows);
+        })
 });
+
 
 module.exports = router;

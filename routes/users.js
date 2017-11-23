@@ -13,7 +13,12 @@ router.get('/', function(req, res, next) {
 
 //Post new user to database
 router.post('/new', function(req, res, next) {
-    knex.raw(`insert into users (email, username, user_token, team_id) values ('${req.body.email}', '${req.body.username}', '${req.body.user_token}', '${req.body.team_id}')`)
+    knex.raw(`insert into users (email, username, user_token) values (
+    '${req.body.email}', 
+    '${req.body.username}', 
+    '${req.body.user_token}'
+    )`)
+        .then(() => {res.send('success')} )
 });
 
 

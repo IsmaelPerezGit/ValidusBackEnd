@@ -7,7 +7,7 @@ var knex = require('../db/knex')
 router.get('/', function (req, res, next) {
     knex.raw(`select * from users`)
         .then(function (user) {
-            res.send(user.rows[0]);
+            res.send(user.rows);
         })
 });
 
@@ -20,6 +20,16 @@ router.post('/new', function (req, res, next) {
     )`)
         .then(() => {
             res.send('success')
+        })
+});
+
+//Show single user
+router.get('/:id', function(req, res, next) {
+    //var userID = req.params.id;
+    knex.raw(`select * from users where id = '${req.params.id}'`)
+        .then(function(user) {
+            res.send(user.rows[0]
+            )
         })
 });
 

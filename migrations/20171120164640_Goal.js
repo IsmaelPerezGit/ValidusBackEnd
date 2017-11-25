@@ -3,7 +3,7 @@ exports.up = function(knex, Promise) {
         table.increments('id');
         table.string('target');
         table.date('start_date');
-        table.date('end_date');
+        table.integer('weeks');
         table.boolean('Sun');
         table.boolean('Mon');
         table.boolean('Tues');

@@ -11,6 +11,7 @@ exports.up = function(knex, Promise) {
         table.boolean('Thurs');
         table.boolean('Fri');
         table.boolean('Sat');
+        table.integer('team_id');
     });
 };
 

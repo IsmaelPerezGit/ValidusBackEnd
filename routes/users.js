@@ -4,7 +4,7 @@ var knex = require('../db/knex')
 
 
 //Splash page
-router.get('/', function (req, res, next) {
+router.get('/', function (req, res) {
     knex.raw(`select * from users`)
         .then(function (user) {
             res.send(user.rows);

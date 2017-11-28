@@ -6,7 +6,7 @@ var knex = require('../db/knex')
 //Get teams
 router.get('/', function (req, res, next) {
     knex.raw(`select * from teams`)
-        .then(function (team) {
+        .then((team) => {
             res.send(team.rows);
         })
 });

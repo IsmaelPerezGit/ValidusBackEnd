@@ -2,16 +2,17 @@ exports.up = function(knex, Promise) {
     return knex.schema.createTable('goals', function(table){
         table.increments('id');
         table.string('target');
-        table.date('start_date');
-        table.integer('weeks');
-        table.boolean('Sun');
-        table.boolean('Mon');
-        table.boolean('Tues');
-        table.boolean('Wed');
-        table.boolean('Thurs');
-        table.boolean('Fri');
-        table.boolean('Sat');
-        table.integer('team_id');
+        table.string('start_date');
+        table.string('weeks');
+        table.boolean('sun');
+        table.boolean('mon');
+        table.boolean('tues');
+        table.boolean('wed');
+        table.boolean('thurs');
+        table.boolean('fri');
+        table.boolean('sat');
+        table.string('team_size');
+        // table.increments('team_id');
     });
 };
 

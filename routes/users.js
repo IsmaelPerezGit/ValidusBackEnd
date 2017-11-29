@@ -25,7 +25,6 @@ router.post('/new', function (req, res, next) {
 
 //Show single user
 router.get('/:user_token', function (req, res, next) {
-    //var userID = req.params.id;
     knex.raw(`select * from users where user_token = '${req.params.user_token}'`)
         .then(function (user) {
             res.send(user.rows[0])

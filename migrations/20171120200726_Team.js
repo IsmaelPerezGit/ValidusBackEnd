@@ -7,10 +7,8 @@ exports.up = function(knex, Promise) {
 
         //without foreign keys
         table.increments('id');
-        table.integer('size');
         table.integer('user_id');
-        table.integer('team_id');
-        table.integer('goal_id')
+        table.integer('goal_id');
     });
 };
 

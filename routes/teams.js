@@ -12,10 +12,19 @@ router.get('/', function (req, res, next) {
 });
 
 //Get teams with specific goal
-router.get(`/:id`, function(req, res, next) {
-    knex.raw(`select * from goals where team_id=${req.params.id}`)
+router.get(`/:id`, function (req, res, next) {
+    knex.raw(`select * from teams where goal_id=${req.params.id}`)
         .then(function (team) {
             res.send(team.rows)
+        })
+});
+
+router.post(`/new`, function (req, res, next) {
+    knex.raw(`insert into teams (user_id, goal_id) values ('${req.body.user_id}', '${req.body.goal_id}')`)
+        .then(function (team) {
+            res.send(
+                'successful team'
+            )
         })
 });
 

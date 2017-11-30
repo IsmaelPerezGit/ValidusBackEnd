@@ -12,7 +12,7 @@ exports.up = function(knex, Promise) {
         table.boolean('fri');
         table.boolean('sat');
         table.string('team_size');
-        table.integer('user_id');
+        table.string('user_id');
         table.integer('days');
         // table.increments('team_id');
     });

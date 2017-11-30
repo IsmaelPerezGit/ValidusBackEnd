@@ -34,13 +34,21 @@ router.post('/new', function (req, res, next) {
          })
 });
 
-//get individual goal
+// get individual goal
 router.get('/:id', function (req, res, next) {
-    knex.raw(`SELECT * FROM goals, users where user_id = users.id` )
+    knex.raw(`SELECT * FROM goals where goals.id = '${req.params.id}' ` )
         .then(function (goal) {
             res.send(goal.rows);
         })
 });
+
+// // show specific user goal
+// router.get('/:user_token', function (req, res, next) {
+//     knex.raw(`select * from goals where user_id = '${req.body.user_token}'`)
+//         .then(function (user) {
+//             res.send(user.rows[0])
+//         })
+// });
 
 
 module.exports = router;

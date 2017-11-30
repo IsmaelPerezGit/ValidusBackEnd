@@ -19,6 +19,7 @@ router.get(`/:id`, function (req, res, next) {
         })
 });
 
+//Post new team
 router.post(`/new`, function (req, res, next) {
     knex.raw(`insert into teams (user_id, goal_id) values ('${req.body.user_id}', '${req.body.goal_id}')`)
         .then(function (team) {
